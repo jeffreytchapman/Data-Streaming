@@ -4,13 +4,14 @@
  </head>
  <body>
 <script src="https://www.puck-js.com/puck.js"></script>
-<button id="btnConnect">Connect Bangle</button>
+<button id="btnConnect">Connect Puck</button>
 <p>X: <span class="bar"><span id="barX"></span></span></p>
 <p>Y: <span class="bar"><span id="barY"></span></span></p>
 <p>Z: <span class="bar"><span id="barZ"></span></span></p>
 <script>
 // Code to upload to Bangle.js
 var BANGLE_CODE = `
+Puck.accelOn(); 
 Puck.on('accel',function(a) {
   var d = [
     "A",
@@ -53,7 +54,7 @@ document.getElementById("btnConnect").addEventListener("click", function() {
         // Now upload our code to it
         connection.write("\x03\x10if(1){"+BANGLE_CODE+"}\n",
           function() { console.log("Ready..."); });
-       Puck.accelOn(); 
+       //Puck.accelOn(); 
       }, 1500);
     });
   });
