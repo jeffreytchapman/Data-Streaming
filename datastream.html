@@ -37,7 +37,6 @@ document.getElementById("btnConnect").addEventListener("click", function() {
       return;
     }
     connection = c;
-    alert("Could connect!");
     // Handle the data we get back, and call 'onLine'
     // whenever we get a line
     var buf = "";
@@ -53,7 +52,7 @@ document.getElementById("btnConnect").addEventListener("click", function() {
       setTimeout(function() {
         // Now upload our code to it
         connection.write("\x03\x10if(1){"+BANGLE_CODE+"}\n",
-          function() { console.log("Ready..."); });
+          function() { console.log("Ready...."); });
       }, 1500);
     });
   });
