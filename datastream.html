@@ -1,6 +1,6 @@
 <html>
  <head>
-  <title>Bangle.js Accelerometer streaming</title>
+  <title>Puck.js Accelerometer streaming</title>
  </head>
  <body>
 <script src="https://www.puck-js.com/puck.js"></script>
@@ -11,7 +11,7 @@
 <script>
 // Code to upload to Bangle.js
 var BANGLE_CODE = `
-Bangle.on('accel',function(a) {
+Puck.on('accel',function(a) {
   var d = [
     "A",
     Math.round(a.x*100),
