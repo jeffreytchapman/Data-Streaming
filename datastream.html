@@ -4,16 +4,11 @@
  </head>
  <body>
 <script src="https://www.puck-js.com/puck.js"></script>
-<button id="btnConnect">Connect Full</button>
+<button id="btnConnect">Connect</button>
 <p>X: <span class="bar"><span id="barX"></span></span></p>
 <p>Y: <span class="bar"><span id="barY"></span></span></p>
 <p>Z: <span class="bar"><span id="barZ"></span></span></p>
-  
-    <button onclick="Puck.write('LED1.set();\n');">LED On!</button>
-  <button onclick="Puck.write('LED1.reset();\n');">LED Off!</button>
-
-  
-  <script>
+<script>
 // Code to upload to Bangle.js
 var BANGLE_CODE = `
 Bangle.on('accel',function(a) {
@@ -114,7 +109,5 @@ function setBarPos(id,d) {
   top: 2px;
 }
 </style>
-  
-  
  </body>
 </html>
