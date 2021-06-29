@@ -4,7 +4,7 @@
  </head>
  <body>
 <script src="https://www.puck-js.com/puck.js"></script>
-<button id="btnConnect">Connect Puck!</button>
+<button id="btnConnect">Connect Puck log</button>
 <p>X: <span class="bar"><span id="barX"></span></span></p>
 <p>Y: <span class="bar"><span id="barY"></span></span></p>
 <p>Z: <span class="bar"><span id="barZ"></span></span></p>
@@ -45,6 +45,16 @@ document.getElementById("btnConnect").addEventListener("click", function() {
     // Handle the data we get back, and call 'onLine'
     // whenever we get a line
     var buf = "";
+   
+   Puck.accelOn(1.6); // default is 12.5Hz, with gyro
+// or Puck.accelOn(1.6); for 1.6Hz low power, without gyro
+Puck.on('accel', function(a) {
+  console.log(a);
+});
+// Turn events off with Puck.accelOff();
+   
+   
+   
     connection.on("data", function(d) {
       //Puck.accelOn();  Puck.accelOn is not a function at Object.ondata (datastream.html:47) at Object.emit (puck.js:139) at BluetoothRemoteGATTCharacteristic.<anonymous>
       buf += d;
