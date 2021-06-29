@@ -1,17 +1,17 @@
 <html>
  <head>
-  <title>Puck.js Accelerometer streaming</title>
+  <title>Bangle.js Accelerometer streaming</title>
  </head>
  <body>
 <script src="https://www.puck-js.com/puck.js"></script>
-<button id="btnConnect">Connect Puck2</button>
+<button id="btnConnect">Connect Bangle</button>
 <p>X: <span class="bar"><span id="barX"></span></span></p>
 <p>Y: <span class="bar"><span id="barY"></span></span></p>
 <p>Z: <span class="bar"><span id="barZ"></span></span></p>
 <script>
 // Code to upload to Bangle.js
-var PUCK_CODE = `
-Puck.on('accel',function(a) {
+var BANGLE_CODE = `
+Bangle.on('accel',function(a) {
   var d = [
     "A",
     Math.round(a.x*100),
@@ -26,10 +26,10 @@ Puck.on('accel',function(a) {
 var connection;
 document.getElementById("btnConnect").addEventListener("click", function() {
   // disconnect if connected already
-  //if (connection) {
-    //connection.close();
-    //connection = undefined;
-  //}
+  if (connection) {
+    connection.close();
+    connection = undefined;
+  }
   // Connect
   Puck.connect(function(c) {
     if (!c) {
@@ -51,7 +51,7 @@ document.getElementById("btnConnect").addEventListener("click", function() {
       // Wait for it to reset itself
       setTimeout(function() {
         // Now upload our code to it
-        connection.write("\x03\x10if(1){"+PUCK_CODE+"}\n",
+        connection.write("\x03\x10if(1){"+BANGLE_CODE+"}\n",
           function() { console.log("Ready..."); });
       }, 1500);
     });
