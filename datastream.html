@@ -4,7 +4,7 @@
  </head>
  <body>
 <script src="https://www.puck-js.com/puck.js"></script>
-<button id="btnConnect">Connect Puck</button>
+<button id="btnConnect">Connect Puck!</button>
 <p>X: <span class="bar"><span id="barX"></span></span></p>
 <p>Y: <span class="bar"><span id="barY"></span></span></p>
 <p>Z: <span class="bar"><span id="barZ"></span></span></p>
@@ -12,7 +12,7 @@
 //Puck.accelOn()
 // Code to upload to Bangle.js
 var BANGLE_CODE = `
-//Puck.accelOn(); 
+//Puck.accelOn(); nothing happened
 Puck.on('accel',function(a) {
   var d = [
     "A",
@@ -38,7 +38,7 @@ document.getElementById("btnConnect").addEventListener("click", function() {
       alert("Couldn't connect!");
       return;
     }
-   Puck.accelOn()
+   //Puck.accelOn() couldnt connect
     connection = c;
     // Handle the data we get back, and call 'onLine'
     // whenever we get a line
@@ -58,6 +58,7 @@ document.getElementById("btnConnect").addEventListener("click", function() {
           function() { console.log("Ready..."); });
        //Puck.accelOn(); 
       }, 1500);
+     Puck.accelOn();
     });
   });
 });
