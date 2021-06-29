@@ -4,7 +4,8 @@
  </head>
  <body>
 <script src="https://www.puck-js.com/puck.js"></script>
-<button id="btnConnect">Connect Puck</button>
+  Puck.accelOn();
+<button id="btnConnect">Connect Puck!</button>
 <p>X: <span class="bar"><span id="barX"></span></span></p>
 <p>Y: <span class="bar"><span id="barY"></span></span></p>
 <p>Z: <span class="bar"><span id="barZ"></span></span></p>
@@ -23,7 +24,7 @@ Puck.on('accel',function(a) {
   Bluetooth.println(d.join(","));
 })
 `;
- Puck.accelOn();
+ //Puck.accelOn();  Puck.accelOn is not a function at datastream.html:26
 
 // When we click the connect button...
 var connection;
