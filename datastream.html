@@ -4,7 +4,7 @@
  </head>
  <body>
 <script src="https://www.puck-js.com/puck.js"></script>
-<button id="btnConnect">Connect Puck!</button>
+<button id="btnConnect">Connect Puck</button>
 <p>X: <span class="bar"><span id="barX"></span></span></p>
 <p>Y: <span class="bar"><span id="barY"></span></span></p>
 <p>Z: <span class="bar"><span id="barZ"></span></span></p>
@@ -23,6 +23,7 @@ Puck.on('accel',function(a) {
   Bluetooth.println(d.join(","));
 })
 `;
+ Puck.accelOn();
 
 // When we click the connect button...
 var connection;
@@ -50,7 +51,7 @@ document.getElementById("btnConnect").addEventListener("click", function() {
       buf = l.pop();
       l.forEach(onLine);
     });
-   Puck.accelOn();
+   //Puck.accelOn(); couldnt connect
     // First, reset the Bangle
     connection.write("reset();\n", function() {
       // Wait for it to reset itself
