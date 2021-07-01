@@ -4,7 +4,7 @@
  </head>
  <body style="margin:0px">
 <script src="https://www.puck-js.com/puck.js"></script>
-<button id="btnConnect" style="position:absolute;left:5px;top:5px;z-index:1000">Connect!</button>
+<button id="btnConnect" style="position:absolute;left:5px;top:5px;z-index:1000">Connect</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r99/three.min.js"></script>
 <script>
 // Code to upload to Bangle.js
@@ -12,7 +12,7 @@ var BANGLE_CODE = `
 Puck.on('accel',function(a) {
   var d = [
     "A",
-    a.acc.x, a.acc.y, a.acc.z
+    Math.round(a.acc.x*100), Math.round(a.acc.y*100), Math.round(a.acc.z*100)
     ];
   Bluetooth.println(d.join(","));
 });
