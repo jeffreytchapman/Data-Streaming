@@ -4,7 +4,7 @@
  </head>
  <body>
 <script src="https://www.puck-js.com/puck.js"></script>
-<button id="btnConnect" style="position:absolute;left:5px;top:5px;z-index:1000">Connect</button>
+<button id="btnConnect" style="position:absolute;left:5px;top:5px;z-index:1000">Connect!</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r99/three.min.js"></script>
 <script>
 // Code to upload to Bangle.js
@@ -68,38 +68,8 @@ function onLine(line) {
    accel.z=parseInt(d[3])/100;
   }
 }
-// Set the position of each bar
-function setBarPos(id,d) {
-  var s = document.getElementById(id).style;
-  if (d>150) d=150;
-  if (d<-150) d=-150;
-  if (d>=0) {
-    s.left="150px";
-    s.width=d+"px";
-  } else { // less than 0
-    s.left=(150+d)+"px";
-    s.width=(-d)+"px";
-  }
-}
+
 </script>
-<style>
-/* Styles just to make the bars for X Y and Z look neat */
-.bar {
-  width : 500px;
-  height: 24px;
-  background-color : #D0D0D0;
-  position:relative;
-  display: inline-block;
-}
-.bar span {
-  width : 1px;
-  height: 20px;
-  background-color : red;
-  position:absolute;
-  display: inline-block;
-  left: 150px;
-  top: 2px;
-}
-</style>
+
  </body>
 </html>
