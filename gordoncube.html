@@ -1,8 +1,8 @@
 <html>
  <head>
-  <title>Bangle.js Accelerometer streaming</title>
+  <title>Bangle.js Accelerometer 3D</title>
  </head>
- <body>
+ <body style="margin:0px">
 <script src="https://www.puck-js.com/puck.js"></script>
 <button id="btnConnect" style="position:absolute;left:5px;top:5px;z-index:1000">Connect</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r99/three.min.js"></script>
@@ -18,6 +18,8 @@ Puck.on('accel',function(a) {
 });
 Puck.accelOn();
 `;
+ 
+ var accel = new THREE.Vector3( 0, 0, 1 );
 
 // When we click the connect button...
 var connection;
@@ -62,15 +64,10 @@ function onLine(line) {
   var d = line.split(",");
   if (d.length==4 && d[0]=="A") {
     // we have an accelerometer reading
-    var accel = {
-      x : parseInt(d[1]) * 100 / 8192,
-      y : parseInt(d[2]) * 100 / 8192,
-      z : parseInt(d[3]) * 100 / 8192,
-    };    
-    // Update bar positions
-    setBarPos("barX", accel.x);
-    setBarPos("barY", accel.y);
-    setBarPos("barZ", accel.z);
+    accel.x=parseInt(d[1])/100;
+    accel.y=parseInt(d[2])/100;
+    accel.z=parseInt(d[3])/100;
+    render();
   }
 }
 // WebGL boilerplate
