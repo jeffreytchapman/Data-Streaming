@@ -4,7 +4,7 @@
  </head>
  <body>
 <script src="https://www.puck-js.com/puck.js"></script>
-<button id="btnConnect" style="position:absolute;left:5px;top:5px;z-index:1000">Connect!</button>
+<button id="btnConnect" style="position:absolute;left:5px;top:5px;z-index:1000">Connect</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r99/three.min.js"></script>
 <script>
 // Code to upload to Bangle.js
@@ -69,6 +69,7 @@ function onLine(line) {
    console.log("Y:"+accel.y);
    accel.z=parseInt(d[3])/100;
    console.log("Z:"+accel.z);
+   render();
   }
 }
 
