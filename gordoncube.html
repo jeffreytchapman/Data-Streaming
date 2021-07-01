@@ -63,15 +63,9 @@ function onLine(line) {
   var d = line.split(",");
   if (d.length==4 && d[0]=="A") {
     // we have an accelerometer reading
-    var accel = {
-      x : parseInt(d[1]) * 100 / 8192,
-      y : parseInt(d[2]) * 100 / 8192,
-      z : parseInt(d[3]) * 100 / 8192,
-    };    
-    // Update bar positions
-    setBarPos("barX", accel.x);
-    setBarPos("barY", accel.y);
-    setBarPos("barZ", accel.z);
+    accel.x= parseInt(d[1])/100;
+   accel.y=parseInt(d[2])/100;
+   accel.z=parseInt(d[3])/100;
   }
 }
 // Set the position of each bar
