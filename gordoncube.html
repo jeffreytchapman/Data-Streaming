@@ -1,6 +1,6 @@
 <html>
  <head>
-  <title>Accelerometer 3d1</title>
+  <title>Accelerometer 3d2</title>
  </head>
  <body>
 <script src="https://www.puck-js.com/puck.js"></script>
@@ -66,9 +66,9 @@ function onLine(line) {
     // we have an accelerometer reading
     accel.x= parseInt(d[2])/100;
     console.log("X:"+accel.x);
-    accel.y=parseInt(d[3])/100;
+    accel.y=parseInt(d[1])/100;
     console.log("Y:"+accel.y);
-    accel.z=parseInt(d[1])/100;
+    accel.z=parseInt(d[3])/100;
     console.log("Z:"+accel.z);
     render();
   }
