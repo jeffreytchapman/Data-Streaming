@@ -1,6 +1,6 @@
 <html>
  <head>
-  <title>Accelerometer 3d2</title>
+  <title>Accelerometer 3d3</title>
  </head>
  <body>
 <script src="https://www.puck-js.com/puck.js"></script>
@@ -64,9 +64,9 @@ function onLine(line) {
   var d = line.split(",");
   if (d.length==4 && d[0]=="A") {
     // we have an accelerometer reading
-    accel.x= parseInt(d[2])/100;
+    accel.x= parseInt(d[1])/100;
     console.log("X:"+accel.x);
-    accel.y=parseInt(d[1])/100;
+    accel.y=parseInt(d[2])/100;
     console.log("Y:"+accel.y);
     accel.z=parseInt(d[3])/100;
     console.log("Z:"+accel.z);
@@ -85,7 +85,7 @@ function init() {
     camera.position.set(0, 3.5, 5);
     camera.lookAt(scene.position);
 
-    cube = new THREE.Mesh(new THREE.CubeGeometry(2, 2, 2), new THREE.MeshNormalMaterial());
+    cube = new THREE.Mesh(new THREE.CubeGeometry(2, 2, 1), new THREE.MeshNormalMaterial());
     scene.add(cube);
 
     renderer = new THREE.WebGLRenderer({ antialias: true });
