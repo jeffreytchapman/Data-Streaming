@@ -1,6 +1,6 @@
 <html>
  <head>
-  <title>Accelerometer 3d5</title>
+  <title>Accelerometer 3d6</title>
  </head>
  <body>
 <script src="https://www.puck-js.com/puck.js"></script>
@@ -82,10 +82,10 @@ function init() {
     scene = new THREE.Scene();
 
     camera = new THREE.PerspectiveCamera(70, WIDTH / HEIGHT, 1, 10);
-    camera.position.set(0, -1, 5);
+    camera.position.set(0, -4, 10);
     camera.lookAt(scene.position);
 
-    cube = new THREE.Mesh(new THREE.CubeGeometry(2, 2, 1), new THREE.MeshNormalMaterial());
+    cube = new THREE.Mesh(new THREE.CubeGeometry(1, 4, 2), new THREE.MeshNormalMaterial());
     scene.add(cube);
 
     renderer = new THREE.WebGLRenderer({ antialias: true });
